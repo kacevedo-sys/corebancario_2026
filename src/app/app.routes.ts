@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MonedaComponent } from './components/moneda/moneda.component';
-import { TransaccionComponent } from './components/transaccion/transaccion.component';
+import { MonedaComponent } from './components/parametros_generales/moneda/moneda.component';
+import { TransaccionComponent } from './components/parametros_operacional/transaccion/transaccion.component';
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent },

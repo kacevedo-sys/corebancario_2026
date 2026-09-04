@@ -1,0 +1,50 @@
+.app-container {
+    display: flex;
+    min-height: 100vh;
+
+    .main-content {
+        flex: 1;
+        margin-left: 260px;
+        background: #f5f7fa;
+
+        .top-bar {
+            background: white;
+            padding: 16px 32px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .language-selector {
+                display: flex;
+                gap: 8px;
+
+                button {
+                    padding: 6px 12px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background: white;
+                    cursor: pointer;
+                    font-size: 16px;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background: #f0f0f0;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+
+        .content-area {
+            padding: 24px 32px;
+            min-height: calc(100vh - 80px);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container .main-content {
+        margin-left: 0;
+    }
+}

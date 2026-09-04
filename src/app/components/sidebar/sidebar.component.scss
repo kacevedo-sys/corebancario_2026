@@ -1,0 +1,101 @@
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #1a237e;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+
+    .logo-container {
+        padding: 20px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+
+        h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    .menu {
+        padding: 8px 0;
+
+        .menu-item {
+            .menu-header {
+                display: flex;
+                align-items: center;
+                padding: 12px 16px;
+                cursor: pointer;
+                transition: background 0.2s;
+                gap: 12px;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                }
+
+                .material-icons {
+                    font-size: 22px;
+                }
+
+                span:not(.material-icons) {
+                    flex: 1;
+                    font-size: 14px;
+                }
+
+                .expand-icon {
+                    font-size: 20px;
+                    transition: transform 0.3s;
+                }
+            }
+
+            .submenu {
+                background: rgba(0, 0, 0, 0.2);
+                padding: 4px 0;
+
+                .submenu-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px 16px 10px 56px;
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    gap: 12px;
+                    font-size: 14px;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.05);
+                        color: white;
+                    }
+
+                    &.active {
+                        background: rgba(255, 255, 255, 0.12);
+                        color: white;
+                        border-left: 3px solid #ffc107;
+                    }
+
+                    .material-icons {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive: sidebar colapsable en móvil
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+
+        &.open {
+            transform: translateX(0);
+        }
+    }
+}

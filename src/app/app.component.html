@@ -1,19 +1,15 @@
-<nav style="padding: 1rem; background: #f0f0f0; display: flex; gap: 1rem; margin-bottom: 2rem;">
-  <a routerLink="/" routerLinkActive="active" style="text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">
-    {{ 'BIENVENIDO' | translate }}
-  </a>
-  <a routerLink="/moneda" routerLinkActive="active" style="text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">
-    {{ 'MONEDA' | translate }}
-  </a>
-  <a routerLink="/transaccion" routerLinkActive="active" style="text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px;">
-    {{ 'TRANSACCION' | translate }}
-  </a>
-  <div style="margin-left: auto; display: flex; gap: 0.5rem;">
-    <button (click)="translate.use('es')">🇪🇸 Español</button>
-    <button (click)="translate.use('en')">🇬🇧 English</button>
-  </div>
-</nav>
-
-<main style="padding: 0 2rem;">
-  <router-outlet></router-outlet>
-</main>
+<div class="app-container">
+  <app-sidebar></app-sidebar>
+  
+  <main class="main-content">
+    <header class="top-bar">
+      <div class="language-selector">
+        <button (click)="translate.use('es')">🇪🇸</button>
+        <button (click)="translate.use('en')">🇬🇧</button>
+      </div>
+    </header>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

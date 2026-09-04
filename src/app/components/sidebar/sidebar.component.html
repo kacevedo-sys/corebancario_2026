@@ -1,0 +1,30 @@
+<div class="sidebar">
+    <div class="logo-container">
+        <h2>{{ 'TITULO' | translate }}</h2>
+    </div>
+
+    <nav class="menu">
+        @for (item of menuItems; track item.title) {
+        <div class="menu-item">
+            <div class="menu-header" (click)="toggleMenu(item.title)">
+                <span class="material-icons">{{ item.icon }}</span>
+                <span>{{ item.title | translate }}</span>
+                <span class="material-icons expand-icon">
+                    {{ isExpanded(item.title) ? 'expand_less' : 'expand_more' }}
+                </span>
+            </div>
+
+            @if (isExpanded(item.title)) {
+            <div class="submenu">
+                @for (child of item.children; track child.path) {
+                <a [routerLink]="child.path" routerLinkActive="active" class="submenu-item">
+                    <span class="material-icons">{{ child.icon }}</span>
+                    <span>{{ child.title | translate }}</span>
+                </a>
+                }
+            </div>
+            }
+        </div>
+        }
+    </nav>
+</div>

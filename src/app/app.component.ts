@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core'; 
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    TranslatePipe
+    TranslatePipe,
+    SidebarComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

@@ -4,5 +4,11 @@
     "MONEDA": "Monedas",
     "GESTION_MONEDAS": "Gestión de monedas y tipos de cambio",
     "TRANSACCION": "Transacciones",
-    "GESTION_TRANSACCIONES": "Gestión de transacciones bancarias"
+    "GESTION_TRANSACCIONES": "Gestión de transacciones bancarias",
+
+    "TITULO": "Corebancario",
+    "PARAMETROS_GENERALES": "Parámetros Generales",
+    "PARAMETROS_OPERACIONALES": "Parámetros Operacionales",
+    "ATENCION_CLIENTE": "Atención al Cliente",
+    " INICIO": "Inicio"
 }

@@ -4,5 +4,11 @@
     "MONEDA": "Currencies",
     "GESTION_MONEDAS": "Currency and exchange rate management",
     "TRANSACCION": "Transactions",
-    "GESTION_TRANSACCIONES": "Bank transaction management"
+    
+    "GESTION_TRANSACCIONES": "Bank transaction management",
+    "TITULO": "Corebancario",
+    "PARAMETROS_GENERALES": "General Parameters",
+    "PARAMETROS_OPERACIONALES": "Operational Parameters",
+    "ATENCION_CLIENTE": "Customer Service",
+    "INICIO": "Home"
 }
