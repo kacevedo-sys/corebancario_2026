@@ -4,8 +4,9 @@
 
     .main-content {
         flex: 1;
-        margin-left: 260px;
+        margin-left: 280px;
         background: #f5f7fa;
+        transition: margin-left 0.3s ease;
 
         .top-bar {
             background: white;

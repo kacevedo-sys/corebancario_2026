@@ -1,8 +1,11 @@
 <div class="sidebar">
+    <!-- Logo -->
     <div class="logo-container">
         <h2>{{ 'TITULO' | translate }}</h2>
+        <small>BANKING CORE</small>
     </div>
 
+    <!-- Menú -->
     <nav class="menu">
         @for (item of menuItems; track item.title) {
         <div class="menu-item">
@@ -27,4 +30,14 @@
         </div>
         }
     </nav>
+
+    <!-- Perfil de Usuario (PENDIENTE A IMPLEMENTAR) -->
+    <div class="user-profile">
+        <div class="avatar">LOL</div>
+        <div class="user-info">
+            <span class="name">EL PEPE</span>
+            <span class="role">Administrador</span>
+        </div>
+        <span class="material-icons logout-btn" title="Cerrar Sesión">logout</span>
+    </div>
 </div>

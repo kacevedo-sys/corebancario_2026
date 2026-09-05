@@ -44,4 +44,8 @@ export class SidebarComponent {
   isExpanded(title: string): boolean {
     return this.expandedMenus[title] || false;
   }
+
+  logout() {
+    console.log('Cerrando sesión...');
+  }
 }
