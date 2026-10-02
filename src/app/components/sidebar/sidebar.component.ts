@@ -16,7 +16,8 @@ export class SidebarComponent {
       title: 'PARAMETROS_GENERALES',
       icon: 'settings',
       children: [
-        { title: 'MONEDA', path: '/moneda', icon: 'attach_money' }
+        { title: 'MONEDA', path: '/moneda', icon: 'attach_money' },
+        { title: 'CLIENTE', path: '/cliente', icon: 'attach_money' }
       ]
     },
     {

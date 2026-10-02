@@ -1,4 +1,26 @@
 <div class="page-container">
   <h2>{{ 'TRANSACCION' | translate }}</h2>
   <p>{{ 'GESTION_TRANSACCIONES' | translate }}</p>
+
+  <!-- Tabla para mostrar las cuentas -->
+  <table class="table" *ngIf="cuentas.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Número de Cuenta</th>
+        <th>Titular</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cuenta of cuentas">
+        <td>{{ cuenta.id }}</td>
+        <td>{{ cuenta.numero }}</td>
+        <td>{{ cuenta.titular }}</td>
+        <td>{{ cuenta.saldo }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p *ngIf="cuentas.length === 0">No hay cuentas para mostrar.</p>
 </div>
