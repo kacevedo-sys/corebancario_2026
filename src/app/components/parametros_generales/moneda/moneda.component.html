@@ -1,4 +1,21 @@
+<!-- src/app/moneda/moneda.component.html -->
 <div class="page-container">
   <h2>{{ 'MONEDA' | translate }}</h2>
   <p>{{ 'GESTION_MONEDAS' | translate }}</p>
+
+  <div class="backend-response">
+    <h3>Respuesta del Backend:</h3>
+
+    <div *ngIf="cargando()" class="loading">
+      Cargando...
+    </div>
+
+    <div *ngIf="error()" class="error">
+      {{ error() }}
+    </div>
+
+    <div *ngIf="!cargando() && !error() && respuesta()" class="success">
+      <pre>{{ respuesta() }}</pre>
+    </div>
+  </div>
 </div>
