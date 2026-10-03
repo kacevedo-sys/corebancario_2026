@@ -1,0 +1,67 @@
+<div class="page-container">
+    <!-- Encabezado -->
+    <div class="page-header">
+        <div>
+            <h1>👤 Clientes</h1>
+            <p class="subtitle">Mantenimiento a Clientes</p>
+        </div>
+        <button class="btn btn-primary" (click)="agregar()">
+            + Agregar
+        </button>
+    </div>
+
+    <!-- Criterios de búsqueda -->
+    <div class="search-panel">
+        <div class="search-header">
+            <span class="search-icon">🔍</span>
+            <strong>Criterios de búsqueda</strong>
+            <small>Selecciona uno o varios criterios para refinar los resultados</small>
+        </div>
+        <input type="text" class="search-input" placeholder="Buscar por nombre, apellido, DPI o email..."
+            [value]="filtro()" (input)="onFiltroChange($event)">
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-container">
+        @if (cargando()) {
+        <div class="loading">Cargando clientes...</div>
+        } @else if (error()) {
+        <div class="error">{{ error() }}</div>
+        } @else {
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DPI</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (cliente of clientesFiltrados; track cliente.id) {
+                <tr>
+                    <td>{{ cliente.id }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.dpi }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                    <td class="actions">
+                        <button class="icon-btn view" title="Ver" (click)="ver(cliente)">👁️</button>
+                        <button class="icon-btn edit" title="Editar" (click)="editar(cliente)">✏️</button>
+                        <button class="icon-btn delete" title="Eliminar" (click)="eliminar(cliente)">🗑️</button>
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="7" class="empty">No hay clientes registrados</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+    </div>
+</div>

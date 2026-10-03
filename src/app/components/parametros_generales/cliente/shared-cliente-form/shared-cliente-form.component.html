@@ -1,0 +1,72 @@
+<form (ngSubmit)="onSubmit()" class="cliente-form">
+  <div class="form-grid">
+    <div class="form-field">
+      <label>Nombre *</label>
+      <input type="text" [disabled]="soloLectura"
+        [value]="model().nombre"
+        (input)="onFieldChange('nombre', $any($event.target).value)"
+        [class.invalid]="submitted() && !model().nombre">
+      @if (submitted() && !model().nombre) {
+        <small class="error-msg">● El nombre es requerido</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label>Apellido *</label>
+      <input type="text" [disabled]="soloLectura"
+        [value]="model().apellido"
+        (input)="onFieldChange('apellido', $any($event.target).value)"
+        [class.invalid]="submitted() && !model().apellido">
+      @if (submitted() && !model().apellido) {
+        <small class="error-msg">● El apellido es requerido</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label>DPI *</label>
+      <input type="text" [disabled]="soloLectura"
+        [value]="model().dpi"
+        (input)="onFieldChange('dpi', $any($event.target).value)"
+        [class.invalid]="submitted() && !model().dpi">
+      @if (submitted() && !model().dpi) {
+        <small class="error-msg">● El DPI es requerido</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label>Email</label>
+      <input type="email" [disabled]="soloLectura"
+        [value]="model().email"
+        (input)="onFieldChange('email', $any($event.target).value)">
+    </div>
+
+    <div class="form-field">
+      <label>Teléfono</label>
+      <input type="text" [disabled]="soloLectura"
+        [value]="model().telefono"
+        (input)="onFieldChange('telefono', $any($event.target).value)">
+    </div>
+
+    <div class="form-field">
+      <label>Fecha de Nacimiento</label>
+      <input type="date" [disabled]="soloLectura"
+        [value]="model().fechaNacimiento"
+        (input)="onFieldChange('fechaNacimiento', $any($event.target).value)">
+    </div>
+
+    <div class="form-field full-width">
+      <label>Dirección</label>
+      <input type="text" [disabled]="soloLectura"
+        [value]="model().direccion"
+        (input)="onFieldChange('direccion', $any($event.target).value)">
+    </div>
+  </div>
+
+  @if (!soloLectura) {
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="guardando">
+        {{ guardando ? 'Guardando...' : 'Guardar' }}
+      </button>
+    </div>
+  }
+</form>

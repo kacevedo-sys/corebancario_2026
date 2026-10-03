@@ -1,3 +1,4 @@
+<!-- src/app/components/sidebar/sidebar.component.html -->
 <div class="sidebar">
     <!-- Logo -->
     <div class="logo-container">
@@ -31,13 +32,15 @@
         }
     </nav>
 
-    <!-- Perfil de Usuario (PENDIENTE A IMPLEMENTAR) -->
+    <!-- Perfil de Usuario (con datos de Keycloak) -->
     <div class="user-profile">
-        <div class="avatar">LOL</div>
+        <div class="avatar">{{ userInitials() }}</div>
         <div class="user-info">
-            <span class="name">EL PEPE</span>
-            <span class="role">Administrador</span>
+            <span class="name">{{ userName() }}</span>
+            <span class="role">{{ userRole() }}</span>
         </div>
-        <span class="material-icons logout-btn" title="Cerrar Sesión">logout</span>
+        <span class="material-icons logout-btn" title="Cerrar Sesión" (click)="logout()">
+            logout
+        </span>
     </div>
 </div>

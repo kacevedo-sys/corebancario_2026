@@ -17,9 +17,11 @@
     &::-webkit-scrollbar {
         width: 4px;
     }
+
     &::-webkit-scrollbar-track {
         background: rgba(255, 255, 255, 0.05);
     }
+
     &::-webkit-scrollbar-thumb {
         background: #ffc107;
         border-radius: 4px;
@@ -42,6 +44,7 @@
             background-clip: text;
             text-shadow: none;
         }
+
         small {
             display: block;
             font-size: 11px;
@@ -87,6 +90,7 @@
                     opacity: 0;
                     transition: opacity 0.3s;
                 }
+
                 &:hover::after {
                     opacity: 1;
                 }
@@ -189,11 +193,13 @@
 
         .user-info {
             flex: 1;
+
             .name {
                 font-size: 14px;
                 font-weight: 500;
                 display: block;
             }
+
             .role {
                 font-size: 12px;
                 opacity: 0.6;
@@ -226,5 +232,15 @@
         &.open {
             transform: translateX(0);
         }
+    }
+}
+
+.logout-btn {
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+
+    &:hover {
+        color: #ffb700;
+        transform: scale(1.1);
     }
 }
