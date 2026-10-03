@@ -1,24 +1,32 @@
 <div class="page-container">
   <div class="page-header">
     <div>
-      <h1>👤 Clientes</h1>
+      <h1>👤 {{ 'CLIENTES.TITULO' | translate }}</h1>
       <p class="subtitle">
         @switch (modo()) {
-          @case ('crear') { Agregar Cliente }
-          @case ('editar') { Editar Cliente }
-          @case ('ver') { Ver Cliente }
+          @case ('crear') { {{ 'CLIENTES.FORM.TITULO_CREAR' | translate }} }
+          @case ('editar') { {{ 'CLIENTES.FORM.TITULO_EDITAR' | translate }} }
+          @case ('ver') { {{ 'CLIENTES.FORM.TITULO_VER' | translate }} }
         }
       </p>
     </div>
-    <button class="btn btn-outline" (click)="regresar()">← Regresar</button>
+    <button class="btn btn-outline" (click)="regresar()">
+      ← {{ 'CLIENTES.FORM.REGRESAR' | translate }}
+    </button>
   </div>
 
   <div class="form-card">
-    <app-shared-cliente-form
-      [cliente]="cliente()"
-      [modo]="modo()"
-      [guardando]="guardando()"
-      (guardar)="guardar($event)">
-    </app-shared-cliente-form>
+    @if (cargando()) {
+      <div class="loading">{{ 'CLIENTES.CARGANDO' | translate }}</div>
+    } @else if (error()) {
+      <div class="error">{{ error() }}</div>
+    } @else {
+      <app-shared-cliente-form
+        [cliente]="cliente()"
+        [modo]="modo()"
+        [guardando]="guardando()"
+        (guardar)="guardar($event)">
+      </app-shared-cliente-form>
+    }
   </div>
 </div>

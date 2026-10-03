@@ -22,7 +22,6 @@ export class AppComponent {
   title = 'corebancario';
   
   constructor(public translate: TranslateService) {
-    // setDefaultLang ya no existe; .use() carga y activa el idioma directamente
     this.translate.use('es');
   }
 }

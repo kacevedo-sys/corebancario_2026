@@ -20,29 +20,60 @@ export class ClienteFormComponent implements OnInit {
   modo = signal<'crear' | 'editar' | 'ver'>('crear');
   cliente = signal<Cliente | null>(null);
   guardando = signal<boolean>(false);
+  cargando = signal<boolean>(false);
+  error = signal<string | null>(null);
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    // 1. Detectar el modo según la URL
     const url = this.route.snapshot.url.map(s => s.path).join('/');
+    const id = this.route.snapshot.paramMap.get('id');
 
-    if (url.includes('ver')) this.modo.set('ver');
-    else if (url.includes('editar')) this.modo.set('editar');
-
-    if (id) {
-      this.clienteService.getCliente(+id).subscribe({
-        next: (data) => this.cliente.set(data),
-        error: (err) => console.error(err)
-      });
+    if (url.includes('ver')) {
+      this.modo.set('ver');
+    } else if (url.includes('editar')) {
+      this.modo.set('editar');
+    } else {
+      this.modo.set('crear');
     }
+
+    // 2. Si hay ID, cargar el cliente desde el backend
+    if (id) {
+      this.cargarCliente(+id);
+    }
+  }
+
+  cargarCliente(id: number): void {
+    this.cargando.set(true);
+    this.error.set(null);
+
+    this.clienteService.getCliente(id).subscribe({
+      next: (data) => {
+        this.cliente.set(data);
+        this.cargando.set(false);
+      },
+      error: (err) => {
+        this.error.set(`Error ${err.status}: No se pudo cargar el cliente`);
+        this.cargando.set(false);
+        console.error(err);
+      }
+    });
   }
 
   guardar(cliente: Cliente): void {
     this.guardando.set(true);
-    const modo = this.modo();
+    this.error.set(null);
 
-    const operacion = (modo === 'editar' && cliente.id)
-      ? this.clienteService.actualizarCliente(cliente.id, cliente)
-      : this.clienteService.crearCliente(cliente);
+    const modoActual = this.modo();
+    let operacion;
+
+    if (modoActual === 'editar' && cliente.clienteId) {
+      // ACTUALIZAR (PUT)
+      operacion = this.clienteService.actualizarCliente(cliente.clienteId, cliente);
+    } else {
+      // CREAR (POST) - Quitamos el clienteId si existe para que el backend lo genere
+      const { clienteId, fechaRegistro, ...clienteSinId } = cliente;
+      operacion = this.clienteService.crearCliente(clienteSinId as Cliente);
+    }
 
     operacion.subscribe({
       next: () => {
@@ -51,7 +82,11 @@ export class ClienteFormComponent implements OnInit {
       },
       error: (err) => {
         this.guardando.set(false);
-        alert(`Error ${err.status}: No se pudo guardar`);
+        const mensaje = err.status === 400
+          ? 'Datos inválidos. Verifica los campos.'
+          : `Error ${err.status}: No se pudo guardar`;
+        this.error.set(mensaje);
+        alert(mensaje);
       }
     });
   }

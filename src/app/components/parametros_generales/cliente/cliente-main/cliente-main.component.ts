@@ -44,10 +44,10 @@ export class ClienteMainComponent implements OnInit {
     const termino = this.filtro().toLowerCase();
     if (!termino) return this.clientes();
     return this.clientes().filter(c =>
-      c.nombre.toLowerCase().includes(termino) ||
-      c.apellido.toLowerCase().includes(termino) ||
-      c.dpi.toLowerCase().includes(termino) ||
-      c.email.toLowerCase().includes(termino)
+      c.nombres?.toLowerCase().includes(termino) ||
+      c.apellidos?.toLowerCase().includes(termino) ||
+      c.dpi?.toLowerCase().includes(termino) ||
+      c.correo?.toLowerCase().includes(termino)
     );
   }
 
@@ -61,18 +61,19 @@ export class ClienteMainComponent implements OnInit {
   }
 
   editar(cliente: Cliente): void {
-    this.router.navigate(['/cliente/editar', cliente.id]);
+    // Usamos clienteId
+    this.router.navigate(['/cliente/editar', cliente.clienteId]);
   }
 
   ver(cliente: Cliente): void {
-    this.router.navigate(['/cliente/ver', cliente.id]);
+    this.router.navigate(['/cliente/ver', cliente.clienteId]);
   }
 
   eliminar(cliente: Cliente): void {
-    if (!cliente.id) return;
-    if (!confirm(`¿Eliminar a ${cliente.nombre} ${cliente.apellido}?`)) return;
+    if (!cliente.clienteId) return;
+    if (!confirm(`¿Eliminar a ${cliente.nombres} ${cliente.apellidos}?`)) return;
 
-    this.clienteService.eliminarCliente(cliente.id).subscribe({
+    this.clienteService.eliminarCliente(cliente.clienteId).subscribe({
       next: () => this.cargarClientes(),
       error: (err) => this.error.set(`Error ${err.status}: No se pudo eliminar`)
     });

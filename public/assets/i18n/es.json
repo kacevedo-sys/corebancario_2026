@@ -5,10 +5,53 @@
     "GESTION_MONEDAS": "Gestión de monedas y tipos de cambio",
     "TRANSACCION": "Transacciones",
     "GESTION_TRANSACCIONES": "Gestión de transacciones bancarias",
-
     "TITULO": "Corebancario",
     "PARAMETROS_GENERALES": "Parámetros Generales",
     "PARAMETROS_OPERACIONALES": "Parámetros Operacionales",
     "ATENCION_CLIENTE": "Atención al Cliente",
-    " INICIO": "Inicio"
+    "INICIO": "Inicio",
+
+    "CLIENTES": {
+        "TITULO": "Clientes",
+        "SUBTITULO": "Mantenimiento a Clientes",
+        "AGREGAR": "Agregar",
+        "BUSCAR_PLACEHOLDER": "Buscar por nombre, apellido, DPI o correo...",
+        "CRITERIOS": "Criterios de búsqueda",
+        "CRITERIOS_DESC": "Selecciona uno o varios criterios para refinar los resultados",
+        "CARGANDO": "Cargando clientes...",
+        "SIN_REGISTROS": "No hay clientes registrados",
+        "TABLA": {
+            "ID": "ID",
+            "NOMBRES": "Nombres",
+            "APELLIDOS": "Apellidos",
+            "DPI": "DPI",
+            "CORREO": "Correo",
+            "TELEFONO": "Teléfono",
+            "ACCIONES": "Acciones"
+        },
+        "FORM": {
+            "TITULO_CREAR": "Agregar Cliente",
+            "TITULO_EDITAR": "Editar Cliente",
+            "TITULO_VER": "Ver Cliente",
+            "REGRESAR": "Regresar",
+            "NOMBRES": "Nombres",
+            "APELLIDOS": "Apellidos",
+            "DPI": "DPI",
+            "CORREO": "Correo",
+            "TELEFONO": "Teléfono",
+            "FECHA_NACIMIENTO": "Fecha de Nacimiento",
+            "DIRECCION": "Dirección",
+            "GUARDAR": "Guardar",
+            "GUARDANDO": "Guardando...",
+            "REQUERIDO_NOMBRES": "Los nombres son requeridos",
+            "REQUERIDO_APELLIDOS": "Los apellidos son requeridos",
+            "REQUERIDO_DPI": "El DPI es requerido"
+        },
+        "ACCIONES": {
+            "VER": "Ver",
+            "EDITAR": "Editar",
+            "ELIMINAR": "Eliminar"
+        },
+        "CONFIRMAR_ELIMINAR": "¿Eliminar a {{nombre}} {{apellido}}?"
+    }
 }

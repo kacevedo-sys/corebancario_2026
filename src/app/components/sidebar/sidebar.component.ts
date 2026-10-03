@@ -21,7 +21,7 @@ export class SidebarComponent {
       icon: 'settings',
       children: [
         { title: 'MONEDA', path: '/moneda', icon: 'attach_money' },
-        { title: 'CLIENTE', path: '/cliente', icon: 'attach_money' }
+        { title: 'CLIENTES.TITULO', path: '/cliente', icon: 'attach_money' }
       ]
     },
     {

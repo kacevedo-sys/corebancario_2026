@@ -1,29 +1,46 @@
 // src/app/service/cliente.service.ts
-
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Interfaz para tipar los datos del cliente (ajústala a las columnas de tu tabla)
+// cliente.service.ts
 export interface Cliente {
-  id: number;
-  code: number;
-  name: string;
-  identification: string;
-  email: string;
-  status: string;
+  clienteId?: number;
+  dpi: string;
+  nombres: string;
+  apellidos: string;
+  fechaNacimiento: string;
+  telefono: string;
+  correo: string;
+  direccion: string;
+  fechaRegistro?: string;
+  estado?: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  // URL de tu backend en Node.js
-  private apiUrl = 'http://localhost:3000/api/cliente';
-
-  constructor(private http: HttpClient) { }
+  private http = inject(HttpClient);
+  private readonly apiUrl = '/api/clientes';
 
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiUrl);
+  }
+
+  getCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.apiUrl}/${id}`);
+  }
+
+  crearCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.apiUrl, cliente);
+  }
+
+  actualizarCliente(id: number, cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${this.apiUrl}/${id}`, cliente);
+  }
+
+  eliminarCliente(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

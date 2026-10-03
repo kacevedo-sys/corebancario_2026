@@ -4,11 +4,53 @@
     "MONEDA": "Currencies",
     "GESTION_MONEDAS": "Currency and exchange rate management",
     "TRANSACCION": "Transactions",
-    
     "GESTION_TRANSACCIONES": "Bank transaction management",
     "TITULO": "Corebancario",
     "PARAMETROS_GENERALES": "General Parameters",
     "PARAMETROS_OPERACIONALES": "Operational Parameters",
     "ATENCION_CLIENTE": "Customer Service",
-    "INICIO": "Home"
+    "INICIO": "Home",
+    "CLIENTES": {
+        "TITULO": "Clients",
+        "SUBTITULO": "Client Maintenance",
+        "AGREGAR": "Add",
+        "BUSCAR_PLACEHOLDER": "Search by name, last name, ID or email...",
+        "CRITERIOS": "Search criteria",
+        "CRITERIOS_DESC": "Select one or more criteria to refine results",
+        "CARGANDO": "Loading clients...",
+        "SIN_REGISTROS": "No clients registered",
+        "TABLA": {
+            "ID": "ID",
+            "NOMBRES": "First Names",
+            "APELLIDOS": "Last Names",
+            "DPI": "ID Number",
+            "CORREO": "Email",
+            "TELEFONO": "Phone",
+            "ACCIONES": "Actions"
+        },
+        "FORM": {
+            "TITULO_CREAR": "Add Client",
+            "TITULO_EDITAR": "Edit Client",
+            "TITULO_VER": "View Client",
+            "REGRESAR": "Back",
+            "NOMBRES": "First Names",
+            "APELLIDOS": "Last Names",
+            "DPI": "ID Number",
+            "CORREO": "Email",
+            "TELEFONO": "Phone",
+            "FECHA_NACIMIENTO": "Birth Date",
+            "DIRECCION": "Address",
+            "GUARDAR": "Save",
+            "GUARDANDO": "Saving...",
+            "REQUERIDO_NOMBRES": "First names are required",
+            "REQUERIDO_APELLIDOS": "Last names are required",
+            "REQUERIDO_DPI": "ID Number is required"
+        },
+        "ACCIONES": {
+            "VER": "View",
+            "EDITAR": "Edit",
+            "ELIMINAR": "Delete"
+        },
+        "CONFIRMAR_ELIMINAR": "Delete {{nombre}} {{apellido}}?"
+    }
 }
